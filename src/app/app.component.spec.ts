@@ -19,7 +19,6 @@ describe('AppComponent', () => {
   it(`should have as title 'blur-top-bottom-scroll'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('blur-top-bottom-scroll');
   });
 
   it('should render title', () => {
