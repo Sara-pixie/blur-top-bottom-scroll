@@ -78,7 +78,7 @@
     }
     .shadow {
       width: 100%;
-      box-shadow: 0px 20px 50px 30px white;
+      box-shadow: 0px 20px 50px 30px black;
       height: 0.1px;
       z-index: 5;
       position: sticky;
@@ -92,7 +92,7 @@
     }
     .bottom-shadow {
       width: 100%;
-      box-shadow: 0 -20px 50px 20px white;
+      box-shadow: 0 -20px 50px 20px black;
       height: 0.1px;
       z-index: 5;
       position: sticky;
