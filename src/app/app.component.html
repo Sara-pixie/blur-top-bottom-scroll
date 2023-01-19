@@ -1,4 +1,9 @@
 <div class="main">
+  <div class="status" *ngIf="status">
+    <span *ngIf="status === 'top'">Scrolled to the Top</span>
+    <span *ngIf="status === 'bottom'">Scrolled to the Bottom</span>
+    <span *ngIf="status === 'middle'">Scrolled somewhere in the middle</span>
+  </div>
   <div class="scroll-container">
     <div class="shadow"></div>
     <div class="scroll-up-note">

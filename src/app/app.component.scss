@@ -6,10 +6,19 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-color: black;
+}
+
+.status {
+  color: greenyellow;
+  font-size: 25px;
 }
 
 .scroll-container {
-  background-color: bisque;
+  background-color: black;
+  color: greenyellow;
+  border-radius: 5px;
+  border: 2px solid greenyellow;
   width: 40vw;
   height: 40vh;
   padding: 10px 20px;
@@ -26,6 +35,7 @@
     text-align: center;
     z-index: 3;
     display: none;
+    color: black;
     span {
       background-color: white;
       font-size: 15px;
@@ -46,6 +56,7 @@
     text-align: center;
     z-index: 3;
     display: none;
+    color: black;
     span {
       background-color: white;
       font-size: 15px;

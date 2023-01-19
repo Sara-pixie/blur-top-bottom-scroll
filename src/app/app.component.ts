@@ -6,6 +6,7 @@ import { AfterViewInit, Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+  status?: 'top' | 'bottom' | 'middle';
 
   constructor() {}
 
@@ -16,8 +17,10 @@ export class AppComponent implements AfterViewInit {
         var scrollTop = (e.target as HTMLDivElement).scrollTop;
         var elementScrollMax: number = (e.target as HTMLDivElement).scrollHeight - (e.target as HTMLDivElement).clientHeight;
         var scrollBottom = elementScrollMax - scrollTop;
+        if(scrollBottom.toString().startsWith('0.')) scrollBottom = 0; // because I added border to scrollContainer and sometimes JS makes weird calculations
         (scrollContainer as HTMLDivElement).setAttribute('topScroll', scrollTop.toString());
         (scrollContainer as HTMLDivElement).setAttribute('bottomScroll', scrollBottom.toString());
+        this.setStatus(scrollTop, scrollBottom);
       }
     });
 
@@ -28,7 +31,14 @@ export class AppComponent implements AfterViewInit {
     (scrollContainer as HTMLDivElement).setAttribute('topScroll', scrollTop.toString());
     (scrollContainer as HTMLDivElement).setAttribute('bottomScroll', scrollBottom.toString());
     // or -> this.scrollTo(100); to trigger the first scroll event listener
+    this.setStatus(scrollTop, scrollBottom);
 
+  }
+
+  setStatus(scrollTop: number, scrollBottom: number) {
+    if(scrollTop === 0) this.status = 'top';
+    if(scrollBottom === 0) this.status = 'bottom';
+    if(scrollBottom != 0 && scrollTop != 0) this.status = 'middle';
   }
 
   scrollToTop() {
